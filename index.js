@@ -85,7 +85,7 @@ const getUserAddress = () => {
     return window.web3.currentProvider.selectedAddress.toLowerCase();
 }
 
-const getUserMintable = () => {
+const getUserMintable = async () => {
     let now = Date.now();
     if(now > presaleStartTs && now < presaleEndTs){
         redeemed = parseInt(await methods.getPreSaleRedeemed(getUserAddress()).call());
