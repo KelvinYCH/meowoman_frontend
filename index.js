@@ -112,7 +112,7 @@ const mintBtnClick = async (e) => {
     if (quantity <= 0) {
         return;
     }
-    let mintable = getUserMintable();
+    let mintable = await getUserMintable();
     if(quantity > mintable()){
         $('.error-msg-section').show();
         $('.error-msg').html(`You cannot mint more than ${mintable}`);
