@@ -150,7 +150,7 @@ const mintBtnClick = async (e) => {
     if (result) {
         console.log(result);
         $('.error-msg-section').show();
-        $('.error-msg').html(`Congratulations! You have successfully minted a Meowomen, 
+        $('.error-msg').html(`Congratulations! You have successfully minted ${quantity} Meowomen, 
         Here is your transaction hash ${result.transactionHash}`);
     }
 }
