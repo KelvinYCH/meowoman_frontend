@@ -90,7 +90,7 @@ const getUserMintable = async () => {
     if (now > presaleStartTs && now < presaleEndTs) {
         redeemed = parseInt(await methods.getPreSaleRedeemed(getUserAddress()).call());
     } else {
-        redeemed = parseInt(await methods.getPreSaleRedeemed(getUserAddress()).call());
+        redeemed = parseInt(await methods.getPublicSaleRedeemed(getUserAddress()).call());
     }
     return 2 - redeemed;
 }
