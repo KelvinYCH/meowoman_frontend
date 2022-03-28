@@ -86,8 +86,13 @@ const getUserAddress = () => {
 }
 
 const getUserMintable = () => {
-    if()
-    redeemed = parseInt(await methods.getPreSaleRedeemed().call());
+    let now = Date.now();
+    if(now > presaleStartTs && now < presaleEndTs){
+        redeemed = parseInt(await methods.getPreSaleRedeemed(getUserAddress()).call());
+    } else {
+        redeemed = parseInt(await methods.getPreSaleRedeemed(getUserAddress()).call());
+    }
+    return redeemed - 2;
 }
 
 const getProof = (address) => {
@@ -104,7 +109,13 @@ const mintBtnClick = async (e) => {
     $('.error-msg-section').hide();
     $('.error-msg').html(``);
     let quantity = parseInt($('#counter-input').val());
-    if (quantity <= 0 || quantity > 2) {
+    if (quantity <= 0) {
+        return;
+    }
+    let mintable = getUserMintable();
+    if(quantity > mintable()){
+        $('.error-msg-section').show();
+        $('.error-msg').html(`You cannot mint more than ${mintable}`);
         return;
     }
     $('.has-wallet').hide();
