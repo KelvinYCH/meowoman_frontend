@@ -70,7 +70,7 @@ const checkWeb3 = async () => {
         return true;
     } catch (error) {
         $('.error-msg-section').show();
-        $('.error-msg').html('Please grant us permission in metamask.');
+        $('.error-msg').html('Signature declined. Please try again if you want to connect..');
         $('.mint-container').hide();
         console.log('user rejected permission');
     }
@@ -187,7 +187,7 @@ const updateLayout = async () => {
                     $('.mint-container').hide();
                     $('.timer').hide();
                     $('.error-msg-section').show();
-                    $('.error-msg').html('Sorry! You are not in whitelist.');
+                    $('.error-msg').html('You are not on the whitelist.');
                 }
             } else if (currentStatus == STATUS.AFTER_PRESALE_MINT) {
                 //hide mint panel
@@ -207,7 +207,7 @@ const updateLayout = async () => {
             $('.timer').hide();
             $('.mint-container').hide();
             $('.error-msg-section').show();
-            $('.error-msg').html('Thank you for all joining, our Meowomen has been all minted! Hurray!');
+            $('.error-msg').html('MEOWOMEN IS SOLD OUT!');
         }
     }
     if (currnetMinted == null) {
@@ -273,7 +273,7 @@ const initPage = async () => {
         //display network error
         $('.mint-container').hide();
         $('.error-msg-section').show();
-        $('.error-msg').html('Please change to ethereum mainnet network.');
+        $('.error-msg').html('Please connect to ethereum mainnet.');
     }
 }
 
