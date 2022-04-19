@@ -182,10 +182,8 @@ const updateLayout = async () => {
                     //in whitelist
                     //show mint panel
                     $('.mint-container').show();
-                    //count down to presaleendts
-                    $('.timer').css('display', 'flex');
-                    $('.timer-caption').html('It\'s presale now, hurry up!');
-                    clock('js-clock', presaleEndTs);
+                    $('.timer').hide();
+                    $('.timer-caption').html('Presale is live!');
                 } else {
                     //not in whitelist msg
                     $('.mint-container').hide();
