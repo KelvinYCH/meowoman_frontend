@@ -127,7 +127,7 @@ const mintBtnClick = async (e) => {
     let result = null;
     try {
         if (now >= presaleStartTs && now < presaleEndTs) {
-            result = await methods.PreSalemint(2, proof).send({
+            result = await methods.preSalemint(2, proof).send({
                 from: userAddress,
                 gasLimit,
                 value
