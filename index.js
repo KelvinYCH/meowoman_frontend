@@ -15,7 +15,7 @@ const STATUS = {
 let currentStatus = null;
 let contract = null;
 let methods = null;
-let currnetMinted = null;
+let currentMinted = null;
 let presaleStartTs = null;
 let presaleEndTs = null;
 let publicsaleStartTs = null;
@@ -164,10 +164,10 @@ const updateLayout = async () => {
     if (timerid != null) {
         clearInterval(timerid);
     }
-    if (currentStatus != null && currnetMinted != null) {
+    if (currentStatus != null && currentMinted != null) {
         let now = Date.now();
         $('.has-wallet').show();
-        if (currnetMinted < totalSupply) {
+        if (currentMinted < totalSupply) {
             $('.error-msg-section').hide();
             if (currentStatus == STATUS.BEFORE_PRESALE_MINT) {
                 //hide mint panel
@@ -214,7 +214,7 @@ const updateLayout = async () => {
             $('.error-msg').html('MEOWOMEN IS SOLD OUT!');
         }
     }
-    if (currnetMinted == null) {
+    if (currentMinted == null) {
         //force redraw layout
         currentStatus = null;
     }
