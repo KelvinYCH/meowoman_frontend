@@ -223,8 +223,11 @@ const updateLayout = async () => {
 
 const mintSupplyMonitor = () => {
     setInterval(async () => {
-        currnetMinted = parseInt(await methods.totalSupply().call());
-        $('.mint-count-number').html(`${currnetMinted}/${totalSupply}`);
+        currentMinted = parseInt(await methods.totalSupply().call());
+        $('.mint-count-number').html(`${currentMinted}/${totalSupply}`);
+        if(currentMinted >= totalSupply){
+            updateLayout();
+        }
     }, 1000);
 }
 
