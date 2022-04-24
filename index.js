@@ -4,8 +4,9 @@ const contractAddress = "0x0A8f779a8Ef0b1a530B1aCa5b4F06D025fE19CD5";
 const whitelist = ['0xb838eD7D136A99031de68106B9CD5C8b7e89a08A', '0xcb92AC2f2408295d0F947679239c5672df918306', '0x803FB9C67B8FcfAe77521C7157823d55BE03985C', '0x96166c840B579D23bD39F0525B5032646450b8C3', '0xd0E062dd8cA053e635889B1f442514924472D484', '0xA8c2D542a746826015D193729292fB97D9b52d6A'].map(element => {
     return element.toLowerCase();
 });
-const totalSupply = 15;
-const unitPrice = 0.01;
+const totalSupply = 4000;
+const unitPreSalePrice = 0.08;
+const unitPublicSalePrice = 0.1;
 const STATUS = {
     BEFORE_PRESALE_MINT: 1,
     PRESALE_MINT: 2,
@@ -87,7 +88,7 @@ const getUserAddress = () => {
 
 const getUserMintable = async () => {
     let now = Date.now();
-    if (now > presaleStartTs && now < presaleEndTs) {
+    if (now >= presaleStartTs && now < presaleEndTs) {
         redeemed = parseInt(await methods.getPreSaleRedeemed(getUserAddress()).call());
     } else {
         redeemed = 0;
@@ -102,6 +103,16 @@ const getProof = (address) => {
     let leaf = keccak256(address);
     let proof = tree.getHexProof(leaf);
     return proof;
+}
+
+const getPrice = () => {
+    let now = Date.now();
+    if (now >= presaleStartTs && now < presaleEndTs) {
+        return unitPreSalePrice
+    } else {
+        return unitPublicSalePrice;
+    }
+    
 }
 
 const mintBtnClick = async (e) => {
@@ -126,7 +137,7 @@ const mintBtnClick = async (e) => {
     let userAddress = getUserAddress();
     let proof = getProof(userAddress);
     let gasLimit = 500_000;
-    let value = ethers.utils.parseEther(`${quantity * unitPrice}`);
+    let value = ethers.utils.parseEther(`${quantity * getPrice()}`);
     let now = Date.now();
     let result = null;
     try {
