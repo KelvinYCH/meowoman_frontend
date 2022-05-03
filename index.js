@@ -283,7 +283,7 @@ const initPage = async () => {
         });
         $('.mint-plus').on('click', (e) => {
             e.preventDefault();
-            $('.counter-input').val(Math.min(2, parseInt($('.counter-input').val()) + 1));
+            $('.counter-input').val(Math.min(10, parseInt($('.counter-input').val()) + 1));
         });
         $('.has-wallet').hide();
         $('.mint-container').show();
