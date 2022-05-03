@@ -93,7 +93,7 @@ const getUserMintable = async () => {
     } else {
         return 10;
     }
-    return 2 - redeemed;
+    return 3 - redeemed;
 }
 
 const getProof = (address) => {
