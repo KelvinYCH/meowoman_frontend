@@ -184,7 +184,7 @@ const updateLayout = async () => {
                 //hide mint panel
                 $('.mint-container').hide();
                 //not start msg
-                $('.timer-caption').html('Presale Mint is not start yet. Stay tuned!');
+                $('.timer-caption').html('Presale Mint is not started yet. Stay tuned!');
                 $('.timer').css('display', 'flex');
                 clock('js-clock', presaleStartTs);
             } else if (currentStatus == STATUS.PRESALE_MINT) {
