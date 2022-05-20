@@ -136,7 +136,7 @@ const mintBtnClick = async (e) => {
     $('.has-wallet').hide();
     let userAddress = getUserAddress();
     let proof = getProof(userAddress);
-    let gasLimit = 500_000;
+    let gasLimit = 250_000;
     let value = ethers.utils.parseEther(`${quantity * getPrice()}`);
     let now = Date.now();
     let result = null;
