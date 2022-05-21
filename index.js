@@ -5,8 +5,8 @@ const whitelist = ["0x000091892804f655cc1aca5bbe42944dbb972ab1","0x002988751de5b
     return element.toLowerCase();
 });
 const totalSupply = 4096;
-const unitPreSalePrice = 0.08;
-const unitPublicSalePrice = 0.1;
+const unitPreSalePrice = 0;
+const unitPublicSalePrice = 0;
 const STATUS = {
     BEFORE_PRESALE_MINT: 1,
     PRESALE_MINT: 2,
